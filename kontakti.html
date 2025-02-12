@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakti - Moja Firma</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f3f4f6;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+            margin: 0; /* Uklanjanje defaultnih margina */
+        }
+        .navbar {
+            background-color: #000000; /* Crna boja za navigacioni bar */
+            border-radius: 5px; /* Zaobljenje ivica nav bara */
+        }
+        .navbar-brand, .nav-link {
+            color: #FFD700 !important; /* Jarko žuta za tekst linkova */
+            border-radius: 5px; /* Zaobljenje ivica za nav-linkove */
+        }
+        .navbar-brand img {
+            border: 3px solid #FFD700; /* Žuti okvir */
+            border-radius: 5px; /* Zaobljenje ivica */
+            box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4); /* Žuta senka */
+            transition: box-shadow 0.3s ease;
+        }
+        .navbar-brand img:hover {
+            box-shadow: 0 0.7rem 1.4rem rgba(255, 215, 0, 0.6); /* Veća žuta senka prilikom prelaska mišem */
+        }
+        .navbar-toggler {
+            border-color: #FFD700;
+            border-radius: 3px; /* Zaobljenje ivica za toggler */
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 215, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+        .nav-link:hover {
+            box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4) !important; /* Žuta senka prilikom prelaska mišem */
+            transition: box-shadow 0.3s ease;
+        }
+        .dropdown-menu {
+            background-color: #000000; /* Crna boja za dropdown meni */
+            border-radius: 5px; /* Zaobljenje ivica dropdown menija */
+        }
+        .dropdown-item {
+            color: #FFD700 !important; /* Jarko žuta za tekst dropdown stavki */
+        }
+        .dropdown-item:hover {
+            background-color: #FFD700; /* Žuta boja pozadine na hover */
+            color: #000000 !important; /* Crna boja teksta na hover */
+            box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4); /* Žuta senka prilikom prelaska mišem */
+            transition: box-shadow 0.3s ease;
+        }
+        /* Dodatni stilovi za mobilne uređaje */
+        @media (max-width: 767px) {
+            .navbar-nav {
+                padding: 0.5rem;
+            }
+            .nav-item {
+                margin-bottom: 0.5rem;
+            }
+            .nav-link {
+                padding: 0.5rem 1rem;
+                border-radius: 5px; /* Zaobljenje ivica nav-linkova na mobilnim uređajima */
+            }
+            .nav-link:hover {
+                box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4) !important; /* Ista senka za mobilne uređaje */
+            }
+            .footer {
+                height: auto; /* Prilagodba visine za manje ekrane */
+            }
+        }
+        /* Dodatni stilovi za sadržaj stranice */
+        .content {
+            margin-top: 20px;
+            padding: 20px;
+            flex: 1; /* Promenjeno iz 0 u 1 da bi se sadržaj protezao */
+        }
+
+      /* Stilovi za formu */
+.contact-form {
+    background-color: #f3f4f6; /* Boja pozadine tela stranice */
+    padding: 40px; /* Povećan padding za veći izgled */
+    border-radius: 10px;
+    border: 3px solid #FFD700; /* Žuti okvir koji odgovara navigaciji */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 770px; /* Povećano za 10% */
+    width: 100%; /* Da bi forma bila responzivna */
+    margin-left: 0; /* Postavljanje forme na levu stranu */
+    margin-right: 20px; /* Malo margina sa desne strane za izgled */
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+    color: #000; /* Tamna boja teksta za kontrast */
+}
+
+.contact-form p {
+    color: #FFD700; /* Jarko žuta boja teksta */
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form .form-group label {
+    color: #FFD700; /* Žuta boja slova */
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form .form-control {
+    border-radius: 5px;
+    border: 1px solid #FFD700; /* Žuti okvir za input polja */
+    padding: 15px;
+    font-size: 16px;
+    width: 100%;
+    display: block;
+}
+
+.contact-form .btn {
+    background-color: #FFD700;
+    color: #000; /* Crna boja teksta za kontrast sa žutom pozadinom */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    display: block;
+}
+
+.contact-form .btn:hover {
+    background-color: #e6c200; /* Tamnija nijansa žute boje na hover */
+}
+
+/* Prilagodba za mobilne uređaje */
+@media (max-width: 767px) {
+    .contact-form {
+        padding: 20px;
+        max-width: 100%;
+        margin: 0; /* Centriranje forme na mobilnim uređajima */
+    }
+    
+    .contact-form .form-control {
+        padding: 10px;
+    }
+}
+ 
+/* mapa */
+.map-container {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto; /* Ovo će centralno pozicionirati container */
+     border: 3px solid #FFD700;
+     border-radius: 10px; /* Zakrivljene ivice */
+     
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 600px;
+    border: 3px solid #FFD700; /* Žuti border */
+    
+    
+}
+
+        /* Footer */
+        .footer {
+            background-color: #FFD700; /* Jarko žuta boja */
+            color: #000; /* Crna boja teksta */
+            text-align: center;
+            height: 350px; /* Povećana visina footera */
+            margin-top: auto; /* Osigurava da footer bude na dnu stranice */
+        }
+
+        .footer h4 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="logo za mbilanas.jpg" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Početna</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="o nama.html">O nama</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="webDevelopmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Usluge
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="webDevelopmentDropdown">
+                                <li><a class="dropdown-item" href="racunovodstvo.html">Računovodstvo</a></li>
+                                <li><a class="dropdown-item" href="konsalting.html">Konsalting</a></li>
+                                <li><a class="dropdown-item" href="knjigovodstvo.html">Knjigovodstvo</a></li>
+                                <li><a class="dropdown-item" href="registracija_dozvole.html">Registracija-Dozvole</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kontakti.html">Kontakti</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="content">
+        <section id="kontakti">
+            <h2>Kontakti</h2>
+            <p>Kontakt informacije:</p>
+            <ul>
+                <li>Adresa: Ulica Broj, Grad, Država</li>
+                <li>Telefon: +381 11 123 456</li>
+                <li>Email: info@mojfirma.com</li>
+                <li>Radno vreme: Pon - Pet 9:00 - 17:00</li>
+            </ul>
+        </section>
+    </div>
+    <form class="contact-form">
+    <h2>Kontakt forma</h2>
+    <div class="form-group">
+        <label for="name">Ime:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="message">Poruka:</label>
+        <textarea class="form-control" id="message" name="message" required></textarea>
+    </div>
+    <button type="submit" class="btn">Pošalji</button>
+</form>
+
+ <div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2944.2020561919912!2d19.2644761!3d42.444716799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134deb4bec564ed5%3A0xf9ff1d58c9079e25!2sPodgorica%20City%20Stadium!5e0!3m2!1sen!2s!4v1738981224363!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <a href="index.html">
+                <img src="logo za mbilanas.jpg" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
+            </a>
+            <h4>MONTEBILANS</h4>
+            <p>Ovo je prvi paragraf u footeru.</p>
+            <p>Ovo je drugi paragraf u footeru.</p>
+            <p>Ovo je treći paragraf u footeru.</p>
+        </div>
+    </footer>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
