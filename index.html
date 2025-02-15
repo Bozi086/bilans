@@ -105,11 +105,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:rgba(255, 215, 0, 0.3) ;
+    background-color: rgba(255, 215, 0, 0.3);
 }
+
+.header-image {
+    width: 1300px;
+    height: 730px; /* Ovo je dodano za postavljanje visine */
+}
+
 @media (max-width: 600px) {
     .header-image {
-        width: 100%;
+        width: 100%; /* Ovo će širinu slike postaviti na 100% širine kontejnera kad je ekran manji od 600px */
+        height: auto; /* Visina će se automatski podešavati da zadrži omjer strana */
     }
 }
 
@@ -133,7 +140,7 @@
         .text-ticker-content {
             display: inline-block; /* Da bismo omogućili da se tekst klizi u jednoj liniji */
             white-space: nowrap; /* Sprečavamo prelom teksta */
-            animation: moveText 15s linear infinite;
+            animation: moveText 17s linear infinite;
             text-align: center; /* Centriranje teksta unutar klizećeg dela */
             color: black; /* Crna boja teksta */
             font-size: 24px; /* Veličina fonta */
@@ -163,10 +170,10 @@
     font-size: 2em;
     text-align: center;
     
-    width: 200px;
-    height: 100px;
+    width: 300px;
+    height: 55px;
     background-color:#000000; /* crna  */
-    box-shadow: 0 2px 8px #CC5500; /* Narandžasta senka */
+    
     border: 5px solid #FFD700; /* Žute (zlatne) ivice */
     display: flex;
     justify-content: center;
@@ -179,6 +186,19 @@
     /* Zaobljene ivice */
     border-radius: 15px;
 }
+           /* logo m bilans iznad 1+1=2 */
+    .image-container {
+      text-align: center; /* Centriranje slike horizontalno */
+    }
+    .rounded-image {
+      width: 100%;
+      max-width: 330px;
+      height: auto;
+      border-radius: 20px; /* Zakrivljene ivice */
+
+    }
+
+
 
 
                   h2 {
@@ -192,7 +212,7 @@
         /*usluge 2x2*/
         .photo-article {
     padding: 20px; /* Razmak oko celog članka */
-    background-color: #ffffff; /* Pozadinska boja članka */
+    background-color: rgba(255, 215, 0, 0.3); /* Pozadinska boja članka */
 }
 
 .photo-item {
@@ -358,7 +378,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="logo za mbilanas.jpg" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
+                    <img src="montebilans-zlatni.png" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -394,7 +414,7 @@
 
 
     <div class="image-container">
-        <img src="naslovna22.png" alt="Montebilans" class="header-image">
+        <img src="naslovnaM.png" alt="Montebilans" class="header-image">
     </div>
     
     <div style="height: 5px;"></div> <!-- Razmak između  -->
@@ -415,11 +435,25 @@
            
     <div style="height: 5px;"></div> <!-- Razmak između hero sekcije i mape -->
 
-    <p style="font-size: 28px; color: black; text-shadow: 2px 2px 4px #FFD700; text-align: center;">godine iskustva</p>
+    
     <div id="yearCounter">2009</div>
-    <div style="height: 55px;"></div> <!-- Razmak između hero sekcije i mape -->
+    <p style="font-size: 28px; color: black; text-shadow: 2px 2px 4px #FFD700; text-align: center;">godine iskustva</p>
+    <p style="font-size: 28px; color: black; text-shadow: 2px 2px 4px #FFD700; text-align: center;">na stotine zadovoljnih korisnika i aktivnih klijenata</p>
+        <div style="height: 20px;"></div> <!-- Razmak između  -->
+    <div class="image-container">
+    <img src="bijeli_logo.jpg" alt="Unique Image Name" class="rounded-image">
+  </div>
+   <div style="height: 20px;"></div> <!-- Razmak između  -->
+                  
+             
 
               <h2 >1+1=2</h2>
+
+<div style="height: 55px;"></div> <!-- Razmak između hero sekcije i mape -->
+<div class="horizontal-line"></div>
+<div style="height: 55px;"></div> <!-- Razmak između hero sekcije i mape -->
+               <h2>Usluge </h2>
+              
    
 <div style="height: 35px;"></div> <!-- Razmak između  -->
 
@@ -430,7 +464,7 @@
             <div class="photo-item">
                 <a href="racunovodstvo.html">
                     <img src="racunovodstvo.jpg" alt="Opis slike 1" class="img-fluid">
-                    <h1>Računovodstvo za sliku 1</h1>
+                    <h1>Računovodstvo</h1>
                 </a>
             </div>
         </div>
@@ -439,7 +473,7 @@
             <div class="photo-item">
                 <a href="konsalting.html">
                     <img src="konsalting.jpg" alt="Opis slike 2" class="img-fluid">
-                    <h1>Naslov za sliku 2</h1>
+                    <h1>Konsalting</h1>
                 </a>
             </div>
         </div>
@@ -449,7 +483,7 @@
             <div class="photo-item">
                 <a href="knjigovodstvo.html">
                     <img src="knjigovodstvo.jpg" alt="Opis slike 3" class="img-fluid">
-                    <h1>Naslov za sliku 3</h1>
+                    <h1>Knjigovodstvo</h1>
                 </a>
             </div>
         </div>
@@ -457,15 +491,17 @@
             <div class="photo-item">
                 <a href="registracija_dozvole.html">
                     <img src="registracija prijave.jpg" alt="Opis slike 4" class="img-fluid">
-                    <h1>Naslov za sliku 4</h1>
+                    <h1>Registracije i dozvole</h1>
                 </a>
             </div>
         </div>
     </div>
 </article>
-    
 
-    <div style="height: 105px;"></div> <!-- Razmak između  -->
+<div class="horizontal-line"></div>
+    <div style="height: 205px;"></div> <!-- Razmak između  -->
+
+    
 
     <div class="image-ticker">
         <div class="image-ticker-content">
@@ -523,11 +559,11 @@
     <footer class="footer mt-auto py-3">
         <div class="container">
             <a href="index.html">
-                <img src="logo za mbilanas.jpg" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
+                <img src="bijeli_logo.jpg" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
             </a>
             <h4>MONTEBILANS</h4>
             <p>Ovo je prvi paragraf u footeru.</p>
-            <p>Ovo je drugi paragraf u footeru.</p>
+            <p>www.montebilans.me</p>
             <p>cryptogorac.com</p>
         </div>
     </footer>
@@ -535,7 +571,7 @@
    <script>
     let currentYear = 2009;
     const endYear = 2025;
-    const duration = 4000; // 5 seconds to count from 2009 to 2025
+    const duration = 2500; // 2.5 seconds to count from 2009 to 2025
     const yearCounter = document.getElementById('yearCounter');
     let interval;
     let pauseTimer;
@@ -561,12 +597,22 @@
     // Start the counter when the page loads
     window.onload = startCounter;
 </script>
+ <script>
+    let angle = 0;
+    const image = document.getElementById('rotatingImage');
+
+    setInterval(() => {
+      angle += 360; // Povećavanje ugla za rotaciju
+      image.style.transform = `rotate(${angle}deg)`; // Primena rotacije
+    }, 2000); // Interval od 2 sekunde
+  </script>
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 </body>
 </html>
+
 
 
         
