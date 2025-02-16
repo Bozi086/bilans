@@ -6,9 +6,10 @@
     <title>Kontakti - Moja Firma</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
         body {
-            background-color: #f3f4f6;
+            background-color: white;
             display: flex;
             min-height: 100vh;
             flex-direction: column;
@@ -76,30 +77,71 @@
         }
         /* Dodatni stilovi za sadržaj stranice */
         .content {
+            background-color: white;
             margin-top: 20px;
             padding: 20px;
             flex: 1; /* Promenjeno iz 0 u 1 da bi se sadržaj protezao */
         }
 
+  .kontakt-info {
+    background-color: white;
+    
+    
+    padding: 30px;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 250px; /* Dodavanje 200px margina sa leve strane */
+    position: relative;
+}
+
+.kontakt-info ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.kontakt-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.kontakt-info i {
+    font-size: 1.2em;
+    color: black;
+    margin-right: 10px; /* Razmak između ikonice i teksta */
+    text-shadow: 1px 1px 2px #FFD700, -1px -1px 2px #FFD700, 1px -1px 2px #FFD700, -1px 1px 2px #FFD700; /* Žuta senka oko ikonice */
+}
+
+.kontakt-info span {
+    font-size: 1.2em;
+    color: #333;
+}
+@media (max-width: 576px) { /* Primer: za ekrane manje od ili jednake 576px širine */
+    .kontakt-info {
+        margin-left: 10px; /* Još manja margina za veoma male ekrane */
+    }
+}
+
       /* Stilovi za formu */
 .contact-form {
-    background-color: #f3f4f6; /* Boja pozadine tela stranice */
+    position: relative;
+    background-color: black; /* Boja pozadine tela stranice */
     padding: 40px; /* Povećan padding za veći izgled */
     border-radius: 10px;
     border: 3px solid #FFD700; /* Žuti okvir koji odgovara navigaciji */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 770px; /* Povećano za 10% */
-    width: 100%; /* Da bi forma bila responzivna */
-    margin-left: 0; /* Postavljanje forme na levu stranu */
-    margin-right: 20px; /* Malo margina sa desne strane za izgled */
+    width: 75%; /* Da bi forma bila responzivna */
+    margin-left: 280px; /* Razmak od 150px od leve ivice */
+    margin-right: auto; /* Da bi se forma prianjala uz desnu stranu ako je potrebno */
 }
 
 .contact-form h2 {
     margin-bottom: 20px;
-    color: #000; /* Tamna boja teksta za kontrast */
+    color: #FFD700; 
 }
 
-.contact-form p {
+.contact-form pp {
     color: #FFD700; /* Jarko žuta boja teksta */
 }
 
@@ -112,11 +154,12 @@
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
+    background-color: black;
 }
 
 .contact-form .form-control {
     border-radius: 5px;
-    border: 1px solid #FFD700; /* Žuti okvir za input polja */
+    border: 2px solid #FFD700; /* Žuti okvir za input polja */
     padding: 15px;
     font-size: 16px;
     width: 100%;
@@ -128,7 +171,7 @@
     color: #000; /* Crna boja teksta za kontrast sa žutom pozadinom */
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 100%;
@@ -152,6 +195,20 @@
     }
 }
  
+
+      h2 {
+  color: #000000; /* Crna boja teksta */
+  text-align: left; /* Tekst u lijevu stranu */
+  padding-left: 15%; /* Polu lijevo postavljanje */
+  font-family: 'Arial', sans-serif; /* Stil fonta */
+  font-size: 2em; /* Veličina fonta */
+  margin-top: 20px; /* Razmak iznad */
+  margin-bottom: 20px; /* Razmak ispod */
+}
+
+  
+
+
 /* mapa */
 .map-container {
     margin-top: 20px;
@@ -191,7 +248,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="logo za mbilanas.jpg" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
+                    <img src="montebilans-zlatni.png" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -223,20 +280,32 @@
             </div>
         </nav>
     </header>
-    <div class="content">
-        <section id="kontakti">
-            <h2>Kontakti</h2>
-            <p>Kontakt informacije:</p>
-            <ul>
-                <li>Adresa: Ulica Broj, Grad, Država</li>
-                <li>Telefon: +381 11 123 456</li>
-                <li>Email: info@mojfirma.com</li>
-                <li>Radno vreme: Pon - Pet 9:00 - 17:00</li>
-            </ul>
-        </section>
-    </div>
+     <div style="height: 45px;"></div> <!-- Razmak između  -->
+    <h2><b>KONTAKTI</b></h2>
+    <h2 style="font-size: 20px;">Ako imate bilo kakva pitanja, komentara ili predloga, slobodno nas kontaktirajte  putem:</h2>
+    <div class="kontakt-info">
+    <ul>
+        <li>
+            <i class="bi bi-telephone-fill"></i> 
+            <span> +382 123 4567</span>
+        </li>
+        <li>
+            <i class="bi bi-envelope-fill"></i> 
+            <span> info@montebilans.com</span>
+        </li>
+        <li>
+            <i class="bi bi-geo-alt-fill"></i> 
+            <span>Adresa: Ulica 123, Podgorica, Montenegro</span>
+        </li>
+        <li>
+            <i class="bi bi-clock-fill"></i> 
+            <span> Pon - Pet: 9:00 - 17:00</span>
+        </li>
+    </ul>
+</div>
+    <h2><b>Pisite nam!</b></h2>
     <form class="contact-form">
-    <h2>Kontakt forma</h2>
+    <h2>MONTEBILANS </h2>
     <div class="form-group">
         <label for="name">Ime:</label>
         <input type="text" class="form-control" id="name" name="name" required>
@@ -251,6 +320,8 @@
     </div>
     <button type="submit" class="btn">Pošalji</button>
 </form>
+     <div style="height: 45px;"></div> <!-- Razmak između  -->
+         <h2><b>Pronadjite nas!</b></h2>
 
  <div class="map-container">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2944.2020561919912!2d19.2644761!3d42.444716799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134deb4bec564ed5%3A0xf9ff1d58c9079e25!2sPodgorica%20City%20Stadium!5e0!3m2!1sen!2s!4v1738981224363!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -259,12 +330,12 @@
     <footer class="footer mt-auto py-3">
         <div class="container">
             <a href="index.html">
-                <img src="logo za mbilanas.jpg" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
+                <img src="logo futer.jpg" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
             </a>
-            <h4>MONTEBILANS</h4>
-            <p>Ovo je prvi paragraf u footeru.</p>
-            <p>Ovo je drugi paragraf u footeru.</p>
-            <p>Ovo je treći paragraf u footeru.</p>
+             <h4>MONTEBILANS.ME</h4>
+            <p>+382 20 261 608</p>
+            <p>info@montebilans.me</p>
+            <p style="color: #000000;">© 2025 cryptogorac.com</p>
         </div>
     </footer>
     <!-- Bootstrap JavaScript -->
