@@ -10,67 +10,81 @@
     <style>
         /* Postojeći stilovi */
     body {
-            background-color: #f3f4f6;
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
-            margin: 0; /* Uklanjanje defaultnih margina */
-        }
-        .navbar {
-            background-color: #000000; /* Crna boja za navigacioni bar */
-            border-radius: 5px; /* Zaobljenje ivica nav bara */
-        }
-        .navbar-brand, .nav-link {
-            color: #FFD700; /* Jarko žuta za tekst linkova, izbegnuto !important */
-        }
-        .navbar-brand img {
-            border: 3px solid #FFD700; /* Žuti okvir */
-            border-radius: 5px; /* Zaobljenje ivica */
-            box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4); /* Žuta senka */
-            transition: box-shadow 0.3s ease;
-        }
-        .navbar-brand img:hover {
-            box-shadow: 0 0.7rem 1.4rem rgba(255, 215, 0, 0.6); /* Veća žuta senka prilikom prelaska mišem */
-        }
-        .navbar-toggler {
-            border-color: #FFD700;
-            border-radius: 3px; /* Zaobljenje ivica za toggler */
-        }
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 215, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        }
-        .nav-link:hover {
-            box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4); /* Žuta senka prilikom prelaska mišem */
-            transition: box-shadow 0.3s ease;
-        }
-        .dropdown-menu {
-            background-color: #000000; /* Crna boja za dropdown meni */
-            border-radius: 5px; /* Zaobljenje ivica dropdown menija */
-        }
-        .dropdown-item {
-            color: #FFD700; /* Jarko žuta za tekst dropdown stavki, izbegnuto !important */
-        }
-        .dropdown-item:hover {
-            background-color: #FFD700; /* Žuta boja pozadine na hover */
-            color: #000000; /* Crna boja teksta na hover */
-            box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4); /* Žuta senka prilikom prelaska mišem */
-            transition: box-shadow 0.3s ease;
-        }
-        /* Dodatni stilovi za mobilne uređaje */
-        @media (max-width: 767px) {
-            .navbar-nav {
-                padding: 0.5rem;
-            }
-            .nav-item {
-                margin-bottom: 0.5rem;
-            }
-            .nav-link {
-                padding: 0.5rem 1rem;
-                border-radius: 5px; /* Zaobljenje ivica nav-linkova na mobilnim uređajima */
-            }
-            .nav-link:hover {
-                box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4); /* Ista senka za mobilne uređaje */
-            }
+    background-color:white;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0; /* Uklanjanje defaultnih margina */
+}
+
+.navbar {
+    background-color: #000000; /* Crna boja za navigacioni bar */
+    border-radius: 5px; /* Zaobljenje ivica nav bara */
+}
+
+.navbar-brand, .nav-link {
+    color: #FFD700 !important; /* Jarko žuta za tekst linkova */
+    border-radius: 5px; /* Zaobljenje ivica za nav-linkove */
+}
+
+.navbar-brand img {
+    border: 2px solid #FFD700; /* Žuti okvir */
+    border-radius: 5px; /* Zaobljenje ivica */
+    box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4); /* Žuta senka */
+    transition: box-shadow 0.3s ease;
+    max-height: 69px; /* Visina loga konzistentna sa ostalim stranicama */
+}
+
+.navbar-brand img:hover {
+    box-shadow: 0 0.7rem 1.4rem rgba(255, 215, 0, 0.6); /* Veća žuta senka prilikom prelaska mišem */
+}
+
+.navbar-toggler {
+    border-color: #FFD700;
+    border-radius: 3px; /* Zaobljenje ivica za toggler */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 215, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.nav-link:hover {
+    box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4) !important; /* Žuta senka prilikom prelaska mišem */
+    transition: box-shadow 0.3s ease;
+}
+
+.dropdown-menu {
+    background-color: #000000; /* Crna boja za dropdown meni */
+    border-radius: 5px; /* Zaobljenje ivica dropdown menija */
+}
+
+.dropdown-item {
+    color: #FFD700 !important; /* Jarko žuta za tekst dropdown stavki */
+}
+
+.dropdown-item:hover {
+    background-color: #FFD700; /* Žuta boja pozadine na hover */
+    color: #000000 !important; /* Crna boja teksta na hover */
+    box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4); /* Žuta senka prilikom prelaska mišem */
+    transition: box-shadow 0.3s ease;
+}
+
+/* Dodatni stilovi za mobilne uređaje */
+@media (max-width: 767px) {
+    .navbar-nav {
+        padding: 0.5rem;
+    }
+    .nav-item {
+        margin-bottom: 0.5rem;
+    }
+    .nav-link {
+        padding: 0.5rem 1rem;
+        border-radius: 5px; /* Zaobljenje ivica nav-linkova na mobilnim uređajima */
+    }
+    .nav-link:hover {
+        box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4) !important; /* Ista senka za mobilne uređaje */
+    }
+}
         /* Kraj navigacije */
 
         .horizontal-line {
@@ -343,7 +357,7 @@
     display: none;
     position: fixed;
     bottom: 20px;
-    right: 15px;
+    right: 20px;
     z-index: 99;
     font-size: 18px;
     border: 2px solid #ff7f50; /* Narandžasti okvir */
@@ -358,7 +372,7 @@
     line-height: 20px;
     text-align: center;
     opacity: 0.7;
-    transition: opacity 0.4s;
+    transition: opacity 0.5s;
 }
 
 #backToTop:hover {
