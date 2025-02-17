@@ -76,6 +76,8 @@
         }
     }
 
+   
+
     /* Stil za .custom-paragraph */
     .custom-paragraph {
         background-color: rgba(255, 215, 0, 0.3);
@@ -105,6 +107,25 @@
         padding: 20px;
         flex: 1; /* Promenjeno iz 0 u 1 da bi se sadržaj protezao */
     }
+
+        .teal-border {
+    border: 2px solid orange; /* Narandžasti okvir */
+    box-shadow: 0 0 10px yellow; /* Žuta senka */
+    border-radius: 10px; /* Zakrivljene ivice */
+    width: 80%; /* Prilagođava širinu slike */
+    max-width: 280px; /* Maksimalna širina slike */
+    height: auto; /* Automatski prilagođava visinu */
+    display: block;
+    margin: 0 auto; /* Centriranje slike */
+}
+
+/* Dodajemo medija upit za manje ekrane */
+@media (max-width: 600px) {
+    .teal-border {
+        width: 90%; /* Širina slike će zauzeti 90% širine ekrana */
+        max-width: 100%; /* Maksimalna širina slike */
+    }
+}
 
     /* Footer */
     .footer {
@@ -157,6 +178,8 @@
             </div>
         </nav>
     </header>
+
+
     <div class="content">
         <section id="o_nama">
             
@@ -165,12 +188,21 @@
          <main class="container mt-4">
         <div class="custom-paragraph">
             <h2>O nama</h2>
-            <p>Naša knjigovodstvena agencija uspešno posluje od 2009. godine, pružajući pouzdane i kvalitetne knjigovodstvene usluge malim i srednjim preduzećima. Kao porodični biznis koji vodimo, njegujemo ličan pristup svakom klijentu, uz posvećenost, tačnost i dugogodišnje iskustvo. Nakon rebrendinga 2018. godine, modernizovali smo poslovanje i nastavili da pratimo najnovije standarde u oblasti knjigovodstva. Ponosni smo što sarađujemo sa više od 100 zadovoljnih klijenata, kako u Crnoj Gori, tako i u inostranstvu, pružajući im podršku koja olakšava i unapređuje njihovo poslovanje. Vaš uspeh je i naš cilj!</p>
+            <div style="height: 20px;"></div>
+            <p><b>Montebilans</b> je knjigovodstvena agencija koja uspešno posluje od <b>2009. godine</b>, pružajući pouzdane i kvalitetne knjigovodstvene usluge malim i srednjim preduzećima. Kao porodični biznis koji vodimo, njegujemo ličan pristup svakom klijentu, uz posvećenost, tačnost i dugogodišnje iskustvo.<br>
+             Nakon <b>rebrendinga 2018. godine</b>, modernizovali smo poslovanje i nastavili da pratimo najnovije standarde u oblasti knjigovodstva. Ponosni smo što sarađujemo sa više od 100 zadovoljnih klijenata, kako u <b>Crnoj Gori, tako i u inostranstvu</b>, pružajući im podršku koja olakšava i unapređuje njihovo poslovanje.<br>
+
+             <div style="height: 20px;"></div>
+              <b>Vaš uspeh je i naš cilj!</b></p>
         </div>
 
            
         </section>
     </div>
+  <img src="o_nama_sl.jpg" alt="Opis slike" class="teal-border" width="280" height="240">
+
+           <div style="height: 20px;"></div>        
+
       <footer class="footer mt-auto py-3">
         <div class="container">
             <a href="index.html">
