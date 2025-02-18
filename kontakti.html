@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
         body {
-            background-color: #f3f4f6;
+            background-color: rgba(128, 128, 128, 0.2);
             display: flex;
             min-height: 100vh;
             flex-direction: column;
@@ -20,7 +20,8 @@
             border-radius: 5px; /* Zaobljenje ivica nav bara */
         }
         .navbar-brand, .nav-link {
-            color: #FFD700; /* Jarko žuta za tekst linkova, izbegnuto !important */
+            color: #FFD700 !important; /* Jarko žuta za tekst linkova */
+            border-radius: 5px; /* Zaobljenje ivica za nav-linkove */
         }
         .navbar-brand img {
             border: 3px solid #FFD700; /* Žuti okvir */
@@ -39,7 +40,7 @@
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 215, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
         }
         .nav-link:hover {
-            box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4); /* Žuta senka prilikom prelaska mišem */
+            box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4) !important; /* Žuta senka prilikom prelaska mišem */
             transition: box-shadow 0.3s ease;
         }
         .dropdown-menu {
@@ -47,11 +48,11 @@
             border-radius: 5px; /* Zaobljenje ivica dropdown menija */
         }
         .dropdown-item {
-            color: #FFD700; /* Jarko žuta za tekst dropdown stavki, izbegnuto !important */
+            color: #FFD700 !important; /* Jarko žuta za tekst dropdown stavki */
         }
         .dropdown-item:hover {
             background-color: #FFD700; /* Žuta boja pozadine na hover */
-            color: #000000; /* Crna boja teksta na hover */
+            color: #000000 !important; /* Crna boja teksta na hover */
             box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4); /* Žuta senka prilikom prelaska mišem */
             transition: box-shadow 0.3s ease;
         }
@@ -68,7 +69,7 @@
                 border-radius: 5px; /* Zaobljenje ivica nav-linkova na mobilnim uređajima */
             }
             .nav-link:hover {
-                box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4); /* Ista senka za mobilne uređaje */
+                box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4) !important; /* Ista senka za mobilne uređaje */
             }
             .footer {
                 height: auto; /* Prilagodba visine za manje ekrane */
@@ -232,7 +233,7 @@
     display: none;
     position: fixed;
     bottom: 20px;
-    right: 15px;
+    right: 30px;
     z-index: 99;
     font-size: 18px;
     border: 2px solid #ff7f50; /* Narandžasti okvir */
@@ -327,7 +328,7 @@
         </li>
         <li>
             <i class="bi bi-clock-fill"></i> 
-            <span> Pon - Pet: 9:00 - 17:00</span>
+            <span> Pon - Pet: 9:00 - 15:00</span>
         </li>
     </ul>
 </div>
@@ -360,7 +361,7 @@
             <a href="index.html">
                 <img src="logo futer.jpg" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
             </a>
-             <h4>MONTEBILANS.ME</h4>
+            <h4>MONTEBILANS.ME</h4>
             <p>+382 20 261 608</p>
             <p>info@montebilans.me</p>
             <p style="color: #000000;">© 2025 cryptogorac.com</p>
