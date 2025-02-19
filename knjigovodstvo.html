@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <style>
         body {
-            background-color: #f3f4f6;
+            background-color: rgba(128, 128, 128, 0.3);
             display: flex;
             min-height: 100vh;
             flex-direction: column;
@@ -74,12 +74,48 @@
                 height: auto; /* Prilagodba visine za manje ekrane */
             }
         }
+
+
+
+
+      .content-frame {
+            background-color: white; /* Dodano za vizuelnu razliku */
+            border: 2px solid black;
+            box-shadow: 0 0 10px 5px #FFD700;
+            border-radius: 20px;
+            padding: 20px;
+        }
         /* Dodatni stilovi za sadržaj stranice */
         .content {
             margin-top: 20px;
             padding: 20px;
             flex: 1; /* Promenjeno iz 0 u 1 da bi se sadržaj protezao */
         }
+                   #backToTop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: 2px solid #ff7f50; /* Narandžasti okvir */
+    outline: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px; /* Zakrivljene ivice */
+    width: 50px;
+    height: 50px;
+    line-height: 20px;
+    text-align: center;
+    opacity: 0.7;
+    transition: opacity 0.4s;
+}
+
+#backToTop:hover {
+    opacity: 1;
+}
 
         /* Footer */
         .footer {
@@ -99,8 +135,8 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="logo za mbilanas.jpg" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
+               <a class="navbar-brand" href="index.html">
+                    <img src="montebilans-zlatni.png" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -132,30 +168,78 @@
             </div>
         </nav>
     </header>
-    <div class="content">
-        <section id="kontakti">
-            <h2>Knjigovodstvo</h2>
-            <p>Kontakt informacije:</p>
-            <ul>
-                <li>Adresa: Ulica Broj, Grad, Država</li>
-                <li>Telefon: +381 11 123 456</li>
-                <li>Email: info@mojfirma.com</li>
-                <li>Radno vreme: Pon - Pet 9:00 - 17:00</li>
-            </ul>
-        </section>
-    </div>
-    <footer class="footer mt-auto py-3">
+    <button id="backToTop" title="Back to Top">^</button>
+   
+         <main>
+        <div class="container mt-4 content-frame">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Knjigovodstvo</h2>
+                    <div style="height: 30px;"></div>
+                    <img src="knigovodstvo_G.gif" alt="Opis slike" class="teal-border" width="180" height="140">
+                    <div style="height: 30px;"></div>
+                    <div class="content-wrapper">
+                        <div style="height: 30px;"></div>
+                        
+                        
+                        <p>Osnovne usluge računovodstvene agencije koja se bavi knjigovodstvom obuhvataju:<br>
+
+1. Vođenje poslovnih knjiga – Unos i knjiženje svih poslovnih promena (ulazni i izlazni računi, bankovni izvodi, blagajna, putni nalozi).<br>
+
+2. Obračun PDV-a – Priprema i predaja PDV prijava, kao i vođenje evidencija o PDV-u.<br>
+
+3. Obračun zarada i drugih primanja – Izračun plata zaposlenih, poreza i doprinosa, kao i obračun naknada po ugovorima o delu ili autorskim ugovorima.
+<br>
+4. Izrada mesečnih i godišnjih finansijskih izveštaja – Bilans stanja, bilans uspeha, statistički izveštaji i druge obavezne izveštaje.<br>
+
+5. Obrada poreskih prijava – Priprema i predaja poreskih prijava (porez na dobit, porez na dohodak, porez na imovinu, godišnji porez na dohodak građana).<br>
+
+6. Vođenje pomoćnih knjiga – Knjiga dobavljača, knjiga kupaca, blagajnička knjiga i druge.<br>
+
+7. Izrada završnih računa – Priprema završnog računa na kraju poslovne godine.<br>
+
+8. Arhiviranje poslovne dokumentacije – Održavanje uredne i propisane dokumentacije u skladu sa zakonskim propisima.<br>
+
+
+
+Knjigovodstvene agencije fokusirane na knjigovodstvo pružaju primarno ove operativne i zakonom propisane usluge, dok dodatne konsultantske ili poreske usluge često spadaju u širi spektar računovodstvenih agencija.</p>
+                        <div style="height: 30px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div style="height: 30px;"></div>
+
+      <footer class="footer mt-auto py-3">
         <div class="container">
             <a href="index.html">
-                <img src="logo za mbilanas.jpg" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
+                <img src="logo futer.jpg" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
             </a>
-            <h4>MONTEBILANS</h4>
-            <p>Ovo je prvi paragraf u footeru.</p>
-            <p>Ovo je drugi paragraf u footeru.</p>
-            <p>Ovo je treći paragraf u footeru.</p>
+            <h4>MONTEBILANS.ME</h4>
+            <p>+382 20 261 608</p>
+            <p>info@montebilans.me</p>
+            <p style="color: #000000;">© 2025 cryptogorac.com</p>
         </div>
     </footer>
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+     <script>
+
+    window.onscroll = function() {
+      const backToTopButton = document.getElementById('backToTop');
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backToTopButton.style.display = "block";
+      } else {
+        backToTopButton.style.display = "none";
+      }
+    };
+
+    document.getElementById('backToTop').addEventListener('click', function() {
+      document.body.scrollTop = 0; 
+      document.documentElement.scrollTop = 0; 
+    });
+  </script>
 </body>
 </html>
