@@ -1,633 +1,1197 @@
+
 <!DOCTYPE html>
 <html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moja Firma - Početna</title>
+    <title>City Apartments</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome za ikone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body {
-            background-color: white;
-            display: flex;
-            min-height: 100vh;
-            flex-direction: column;
-            margin: 0;
+        :root {
+            --budva-blue: #006994;
+            --budva-gold: #D4A017;
+            --budva-white: #F5F6F5;
+            --budva-dark: #00344A;
         }
 
+        /* Navbar stilovi */
         .navbar {
-            background-color: #000000;
-            border-radius: 5px;
+            background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark));
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .navbar-brand, .nav-link {
-            color: #FFD700 !important;
-            border-radius: 5px;
+        .navbar-brand {
+            color: var(--budva-white);
+           font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease;
         }
 
-        .navbar-brand img {
-            border: 2px solid #FFD700;
-            border-radius: 5px;
-            box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4);
-            transition: box-shadow 0.3s ease;
-            max-height: 69px;
+        .navbar-brand:hover {
+            color: var(--budva-gold);
+            transform: scale(1.05);
         }
 
-        .navbar-brand img:hover {
-            box-shadow: 0 0.7rem 1.4rem rgba(255, 215, 0, 0.6);
-        }
-
-        .navbar-toggler {
-            border-color: #FFD700;
-            border-radius: 3px;
-        }
-
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 215, 0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        .nav-link {
+            color: var(--budva-white) !important;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.4s ease;
         }
 
         .nav-link:hover {
-            box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4) !important;
-            transition: box-shadow 0.3s ease;
+            color: var(--budva-gold) !important;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
         }
 
-        .dropdown-menu {
-            background-color: #000000;
-            border-radius: 5px;
-        }
-
-        .dropdown-item {
-            color: #FFD700 !important;
-        }
-
-        .dropdown-item:hover {
-            background-color: #FFD700;
-            color: #000000 !important;
-            box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4);
-            transition: box-shadow 0.3s ease;
-        }
-
-        @media (max-width: 767px) {
-            .navbar-nav {
-                padding: 0.5rem;
-            }
-            .nav-item {
-                margin-bottom: 0.5rem;
-            }
-            .nav-link {
-                padding: 0.5rem 1rem;
-                border-radius: 5px;
-            }
-            .nav-link:hover {
-                box-shadow: 0 0.5rem 1rem rgba(255, 215, 0, 0.4) !important;
-            }
-        }
-
-        .horizontal-line {
-            width: 100%; 
-            height: 2px; 
-            background-color: rgba(255, 165, 0, 0.6);
-            margin: 0; 
-            border: none;
-            box-shadow: 0 2px 8px #000000;
-        }
-
-        .image-container {
+        .social-links {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(255, 215, 0, 0.3);
+            gap: 1rem;
         }
 
-        .header-image {
-            width: 1300px;
-            height: 730px;
-        }
-
-        @media (max-width: 600px) {
-            .header-image {
-                width: 100%;
-                height: auto;
-            }
-        }
-
-        .text-ticker {
-            position: relative;
-            overflow: hidden;
-            height: 100px;
-            background-color: #FFD700;
-            border: 1px solid #FFD700;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .text-ticker-content {
-            display: inline-block;
-            white-space: nowrap;
-            animation: moveText 17s linear infinite;
-            text-align: center;
-            color: black;
-            font-size: 24px;
-        }
-
-        @keyframes moveText {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        @media (max-width: 767px) {
-            .text-ticker {
-                height: 80px;
-            }
-
-            .text-ticker-content {
-                font-size: 20px;
-                line-height: 50px;
-            }
-        }
-
-        #yearCounter {
-            font-size: 2em;
-            text-align: center;
-            width: 300px;
-            height: 55px;
-            background-color: #000000;
-            border: 5px solid #FFD700;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #FFD700;
-            margin: 0 auto;
-            border-radius: 15px;
-        }
-
-        .image-container {
-            text-align: center;
-        }
-
-        .rounded-image {
-            width: 100%;
-            max-width: 330px;
-            height: auto;
-            border-radius: 20px;
-        }
-
-        h2 {
-            color: #FFD700;
-            text-shadow: 2px 2px 4px black;
-            text-align: center;
-            font-size: 50px;
-        }
-
-
-
-    .counter-box {
-      font-size: 2em;
-            text-align: center;
-            width: 300px;
-            height: 55px;
-            background-color: #000000;
-            border: 5px solid #FFD700;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #FFD700;
-            margin: 0 auto;
-            border-radius: 15px;
-    }
-
-        .photo-article {
-            padding: 20px;
-            background-color: rgba(255, 215, 0, 0.3);
-        }
-
-        .photo-item {
-            text-align: center;
-            margin-bottom: 120px;
-        }
-
-        .photo-item img {
-            border-radius: 15px;
-            margin-bottom: 10px;
-            width: 450px;
-            height: 325px;
-            border: 5px solid #FFD700;
-            box-shadow: 0 0 10px rgba(255, 165, 0, 0.7);
-            margin-left: 5px;
-            margin-right: 5px;
+        .social-icon {
+            color: var(--budva-white);
+            font-size: 1.2rem;
+            padding: 0.5rem;
+            border-radius: 50%;
             transition: all 0.3s ease;
         }
 
-        .photo-item img:hover {
-            transform: scale(1.10);
-            box-shadow: 0 0 20px rgba(255, 165, 0, 0.9);
-            border-color: #FFA500;
+        .social-icon:hover {
+            color: var(--budva-gold);
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(360deg);
         }
 
-        .photo-item h1 {
-            color: black;
-            margin-top: 10px;
-            margin-bottom: 10px;
+        .navbar-toggler {
+            border: 2px solid var(--budva-white);
+            border-radius: 5px;
+            padding: 0.5rem;
         }
 
-        @media (max-width: 767px) {
-            .photo-item {
-                margin-bottom: 20px;
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(245, 246, 245, 0.95)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background: var(--budva-dark);
+                padding: 1rem;
+                border-radius: 10px;
+                margin-top: 1rem;
+            }
+            .social-links {
+                margin-top: 1rem;
+                justify-content: center;
             }
         }
 
-
-           /* slika loga */
-       .custom-image {
-      width: 450px; /* Širina slike */
-      height: 300px; /* Visina slike */
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-             @media (max-width: 600px) {
-            .custom-image {
-                width: 100%;
-                height: auto;
-            }
+        /* Footer stilovi */
+        .footer {
+            background: linear-gradient(135deg, var(--budva-dark), var(--budva-blue));
+            color: var(--budva-white);
+            padding: 3rem 2rem;
         }
-      
 
-        .kontakt-info {
-            background-color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            font-family: 'Roboto', sans-serif;
-            margin-left: 250px;
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h4 {
+            font-size: 1.3rem;
+            color: var(--budva-gold);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
             position: relative;
         }
 
-        .kontakt-info ul {
-            list-style-type: none;
-            padding-left: 0;
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--budva-gold);
+        }
+
+        .footer-link {
+            color: var(--budva-white);
+            text-decoration: none;
+            margin: 0.8rem 0;
+            font-size: 1rem;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
         }
 
-        .kontakt-info li {
-            margin-bottom: 15px;
-            flex-basis: calc(50% - 10px);
+        .footer-link i {
+            margin-right: 0.5rem;
         }
 
-        .kontakt-info i {
-            font-size: 2.4em;
-            color: black;
-            margin-right: 10px;
-            text-shadow: 1px 1px 2px #FFD700, -1px -1px 2px #FFD700, 1px -1px 2px #FFD700, -1px 1px 2px #FFD700;
+        .footer-link:hover {
+            color: var(--budva-gold);
+            transform: translateX(5px);
         }
 
-        .kontakt-info span {
-            font-size: 1.2em;
-            color: #333;
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin: 0.8rem 0;
         }
 
-        @media (max-width: 576px) {
-            .kontakt-info {
-                margin-left: 10px;
+        .footer-contact i {
+            margin-right: 0.5rem;
+            color: var(--budva-gold);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-credit {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: rgba(245, 246, 245, 0.7);
+            border-top: 1px solid rgba(245, 246, 245, 0.2);
+            padding-top: 1rem;
+        }
+
+        /* Hero stilovi */
+        .hero-section {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--budva-white);
+          background: linear-gradient(rgba(0, 52, 74, 0.45), rgba(0, 52, 74, 0.45)), url('hero-slika.jpg');
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-btn {
+            background: var(--budva-gold);
+            color: var(--budva-dark);
+            padding: 1rem 2.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-btn:hover {
+            background: var(--budva-white);
+            color: var(--budva-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Sticky footer */
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+            background-color: var(--budva-white);
+        }
+
+        /* Apartmani sekcija */
+        .apartments-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .apartments-section h2 {
+            text-align: center;
+            color: var(--budva-dark);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .apartments-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--budva-gold);
+        }
+
+        .apartments-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .apartment-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .apartment-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .apartment-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .apartment-card-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .apartment-card-content h3 {
+            color: var(--budva-dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .apartment-card-content button {
+            background: var(--budva-blue);
+            color: var(--budva-white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            border: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .apartment-card-content button:hover {
+            background: var(--budva-gold);
+            color: var(--budva-dark);
+        }
+
+        /* Modal stilovi */
+        .modal-content {
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background: var(--budva-white);
+             border: 3px solid var(--budva-light-blue);
+        }
+
+        .modal-header {
+            background: var(--budva-blue);
+            color: var(--budva-white);
+            border-bottom: none;
+            padding: 1rem 1.5rem;
+
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .modal-body .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .modal-body .small-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .modal-body .small-images img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .modal-body p {
+            color: var(--budva-dark);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 1rem 0;
+        }
+
+        .modal-footer {
+            border-top: none;
+            padding: 1rem 1.5rem;
+            background: var(--budva-white);
+            position: sticky;
+            bottom: 0;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .modal-footer .reserve-btn {
+            background: var(--budva-gold);
+            color: var(--budva-dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            width: auto;
+        }
+
+        .modal-footer .reserve-btn:hover {
+            background: var(--budva-blue);
+            color: var(--budva-white);
+        }
+
+        /* Responzivnost za apartmane i modal */
+        @media (max-width: 991px) and (min-width: 769px) {
+            .apartments-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .kontakt-info ul {
+
+            .apartment-card img {
+                height: 208px;
+            }
+
+            .modal-body .main-image {
+                height: 300px;
+            }
+
+            .modal-body .small-images {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modal-body .small-images img {
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .apartments-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .apartment-card img {
+                height: 182px;
+            }
+
+            .modal-dialog {
+                margin: 1rem;
+                max-width: calc(100% - 2rem);
+                height: 90vh;
+            }
+
+            .modal-content {
+                border-radius: 10px;
+                height: 100%;
+                display: flex;
                 flex-direction: column;
             }
-            .kontakt-info li {
-                flex-basis: 100%;
+
+            .modal-header {
+                padding: 0.75rem 1rem;
+            }
+
+            .modal-title {
+                font-size: 1.25rem;
+            }
+
+            .modal-body {
+                padding: 1rem;
+                max-height: none;
+                flex: 1;
+                overflow-y: auto;
+            }
+
+            .modal-body .main-image {
+                height: 250px;
+            }
+
+            .modal-body .small-images {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .modal-body .small-images img {
+                height: 100px;
+            }
+
+            .modal-body p {
+                font-size: 0.95rem;
+                margin: 0.75rem 0;
+            }
+
+            .modal-footer {
+                padding: 0.75rem 1rem;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .modal-footer .reserve-btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
             }
         }
 
-        .map-container {
-            margin-top: 20px;
+        /* O nama sekcija */
+        .about-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--budva-white);
+        }
+
+        .about-section h2 {
+            color: var(--budva-dark);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .about-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--budva-gold);
+        }
+
+        .about-section p {
+            color: var(--budva-dark);
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 3rem 1rem;
+            }
+
+            .about-section h2 {
+                font-size: 2rem;
+            }
+
+            .about-section p {
+                font-size: 1rem;
+            }
+        }
+
+
+          /* zasto city aparamets */
+            .location-advantages {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .location-advantages h2 {
+            color: var(--budva-dark);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .location-advantages h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--budva-gold);
+        }
+
+        .location-image-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .location-image {
             width: 100%;
-            max-width: 1300px;
-            margin-left: auto;
-            margin-right: auto;
-            border: 3px solid #FFD700;
+            max-width: 1200px;
+            height: auto;
+            max-height: 700px;
+            object-fit: cover;
             border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sjena oko slike */
+            display: block;
         }
 
-        .map-container iframe {
+        /* Responzivnost */
+        @media (max-width: 1200px) {
+            .location-advantages {
+                padding: 1.5rem;
+            }
+
+            .location-image-container {
+                max-width: 100%;
+            }
+
+            .location-image {
+                max-width: 100%;
+                max-height: 600px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .location-advantages h2 {
+                font-size: 2rem;
+            }
+
+            .location-image {
+                max-height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .location-advantages {
+                padding: 1rem;
+            }
+
+            .location-advantages h2 {
+                font-size: 1.8rem;
+            }
+
+            .location-image {
+                max-height: 300px;
+            }
+        }
+
+        /* komentari sa bookinga */
+        .reviews-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .reviews-section h2 {
+            color: var(--budva-dark);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .reviews-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--budva-gold);
+        }
+
+        .reviews-carousel {
+            position: relative;
+            overflow: hidden;
             width: 100%;
-            height: 600px;
-            border: 3px solid #FFD700;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        #backToTop {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 99;
-            font-size: 18px;
-            border: 2px solid #ff7f50;
-            outline: none;
-            background-color: black;
-            color: white;
+        .reviews-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .review-card {
+            flex: 0 0 100%;
+            background: var(--budva-white);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .review-card i.quote-icon {
+            color: var(--budva-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-card p {
+            color: var(--budva-dark);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 0 0 1rem 0;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .review-author img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+            border: 2px solid var(--budva-gold);
+        }
+
+        .review-author .flag {
+            width: 20px;
+            height: 15px;
+            margin-right: 0.5rem;
+            background-size: cover;
+            background-position: center;
+            display: inline-block;
+        }
+
+        .review-author h4 {
+            color: var(--budva-blue);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Zastavice (placeholder - zamijeni s pravim slikama ili ikonama) */
+        .flag.rs { background: url('https://flagcdn.com/w20/rs.png') no-repeat; } /* Srbija */
+        .flag.hr { background: url('https://flagcdn.com/w20/hr.png') no-repeat; } /* Hrvatska */
+        .flag.me { background: url('https://flagcdn.com/w20/me.png') no-repeat; } /* Crna Gora */
+        .flag.ba { background: url('https://flagcdn.com/w20/ba.png') no-repeat; } /* Bosna i Hercegovina */
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+
+        .carousel-controls button {
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            color: var(--budva-white);
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50%;
             cursor: pointer;
-            padding: 15px;
-            border-radius: 10px;
-            width: 50px;
-            height: 50px;
-            line-height: 20px;
-            text-align: center;
-            opacity: 0.7;
-            transition: opacity 0.5s;
+            transition: background 0.3s ease;
         }
 
-        #backToTop:hover {
-            opacity: 1;
+        .carousel-controls button:hover {
+            background: var(--budva-blue);
         }
 
-        .content {
-            flex: 1;
+        /* Responzivnost */
+        @media (max-width: 768px) {
+            .reviews-section {
+                padding: 1rem;
+            }
+
+            .reviews-section h2 {
+                font-size: 2rem;
+            }
+
+            .review-card {
+                padding: 1.5rem;
+            }
+
+            .review-card p {
+                font-size: 1rem;
+            }
+
+            .review-author img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .review-author h4 {
+                font-size: 1.1rem;
+            }
+
+            .carousel-controls button {
+                font-size: 1.2rem;
+                padding: 0.4rem 0.8rem;
+            }
         }
 
-        .footer {
-            background-color: #FFD700;
-            color: #000;
-            text-align: center;
-            height: 350px;
-            margin-top: auto;
+        @media (max-width: 480px) {
+            .reviews-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .review-card {
+                padding: 1rem;
+            }
+
+            .review-card p {
+                font-size: 0.95rem;
+            }
+
+            .review-author img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .review-author h4 {
+                font-size: 1rem;
+            }
+
+            .carousel-controls button {
+                font-size 1rem;
+                padding: 0.3rem 0.6rem;
+            }
         }
 
-        .footer h4 {
-            margin-top: 0;
+         /* Stilovi za text-ticker */
+
+         :root {
+            --budva-blue: #006994;
+            --budva-gold: #D4A017;
+            --budva-white: #F5F6F5;
+            --budva-dark: #00344A;
+            --animation-duration: 25s; /* Trajanje klizanja teksta */
+        }
+        .text-ticker {
+            background: linear-gradient(135deg, var(--budva-blue), var(--budva-dark)); /* Gradient kao navbar/footer */
+            padding: 1rem;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Senka slična navbaru */
+            overflow: hidden; /* Sakriva tekst izvan granica */
+            white-space: nowrap; /* Tekst u jednoj liniji */
         }
 
-        a {
-            text-decoration: none;
+        .text-ticker-content {
+            color: var(--budva-white); /* Bela boja teksta */
+            font-size: 1.5rem; /* Srednja veličina fonta */
+            font-family: Arial, sans-serif; /* Jednostavan font */
+            font-weight: 500; /* Srednja debljina */
+            display: inline-block; /* Omogućava animaciju */
+            animation: slide var(--animation-duration) linear infinite; /* Klizanje s desna na levo */
         }
+
+        .text-ticker-content b {
+            color: var(--budva-gold); /* Zlatna boja za podebljani tekst */
+        }
+
+        /* Animacija klizanja s desna na levo */
+        @keyframes slide {
+            0% {
+                transform: translateX(100%); /* Početak s desne strane */
+            }
+            100% {
+                transform: translateX(-100%); /* Kraj na levoj strani */
+            }
+        }
+
+        /* Responzivnost */
+        @media (max-width: 768px) {
+            .text-ticker {
+                padding: 0.8rem;
+            }
+            .text-ticker-content {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .text-ticker {
+                padding: 0.6rem;
+            }
+            .text-ticker-content {
+                font-size: 1rem;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="montebilans-zlatni.png" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">City Apartments</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Početna</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="o-nama.html">O nama</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="galerija.html">Galerija</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kontakti.html">Kontakti</a>
+                    </li>
+                </ul>
+                <div class="social-links">
+                   <a href="https://wa.me/38269871777" target="_blank" class="social-icon">
+                   <i class="fab fa-whatsapp"></i>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Početna</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="o nama.html">O nama</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="webDevelopmentDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Usluge
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="webDevelopmentDropdown">
-                                <li><a class="dropdown-item" href="racunovodstvo.html">Računovodstvo</a></li>
-                                <li><a class="dropdown-item" href="konsalting.html">Konsalting</a></li>
-                                <li><a class="dropdown-item" href="knjigovodstvo.html">Knjigovodstvo</a></li>
-                                <li><a class="dropdown-item" href="registracija_dozvole.html">Registracija-Dozvole</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="kontakti.html">Kontakti</a>
-                        </li>
-                    </ul>
+                    <a href="https://instagram.com" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
                 </div>
             </div>
-        </nav>
-    </header>
-    <button id="backToTop" title="Back to Top">^</button>
+        </div>
+    </nav>
 
-    <div class="image-container">
-        <img src="naslovnaM2.png" alt="Montebilans" class="header-image">
-    </div>
-    
-    <div style="height: 5px;"></div> 
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>City Apartments</h1>
+                <p>Uživajte u luksuznom smještaju u srcu Budve, uz vrhunsku uslugu i nezaboravan odmor.</p>
+                <a href="kontakti.html" class="hero-btn">Rezervišite sada</a>
+            </div>
+        </section>
 
-    <div class="horizontal-line"></div>
-    <div style="height: 8px;"></div>
+        <section class="apartments-section">
+            <h2>Deluxe Apartmani</h2>
+            <div class="apartments-grid">
+                <div class="apartment-card">
+                    <img src="naslovna.jpg" alt="Deluxe Apartman 1">
+                    <div class="apartment-card-content">
+                        <h3>Deluxe Apartman 1</h3>
+                        <button data-bs-toggle="modal" data-bs-target="#apartman1Modal">Saznaj više</button>
+                    </div>
+                </div>
+                <div class="apartment-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Deluxe Apartman 2">
+                    <div class="apartment-card-content">
+                        <h3>Deluxe Apartman 2</h3>
+                        <button data-bs-toggle="modal" data-bs-target="#apartman2Modal">Saznaj više</button>
+                    </div>
+                </div>
+                <div class="apartment-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Deluxe Apartman 3">
+                    <div class="apartment-card-content">
+                        <h3>Deluxe Apartman 3</h3>
+                        <button data-bs-toggle="modal" data-bs-target="#apartman3Modal">Saznaj više</button>
+                    </div>
+                </div>
+            </div>
 
-    <div class="text-ticker">
+            <!-- Modali -->
+            <div class="modal fade" id="apartman1Modal" tabindex="-1" aria-labelledby="apartman1ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="apartman1ModalLabel">Deluxe Apartman 1</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="naslovna.jpg" class="main-image" alt="Deluxe Apartman 1">
+                            <div class="small-images">
+                                <img src="enterijer.jpg" alt="Detalj 1">
+                                <img src="enterijer-1.jpg" alt="Detalj 2">
+                                <img src="enterijer.jpg" alt="Detalj 3">
+                            </div>
+                            <p>Ovaj prostrani apartman nudi luksuzan smještaj sa pogledom na more, modernim enterijerom i svim potrebnim sadržajima za nezaboravan odmor u Budvi.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="kontakti.html" class="reserve-btn">Rezerviši</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="apartman2Modal" tabindex="-1" aria-labelledby="apartman2ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="apartman2ModalLabel">Deluxe Apartman 2</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="https://via.placeholder.com/800x400" class="main-image" alt="Deluxe Apartman 2">
+                            <div class="small-images">
+                                <img src="https://via.placeholder.com/200x150" alt="Detalj 1">
+                                <img src="https://via.placeholder.com/200x150" alt="Detalj 2">
+                                <img src="https://via.placeholder.com/200x150" alt="Detalj 3">
+                            </div>
+                            <p>Udoban i elegantan apartman sa privatnim balkonom, idealan za parove ili manje porodice koji žele uživati u srcu Budve.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="kontakti.html" class="reserve-btn">Rezerviši</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="apartman3Modal" tabindex="-1" aria-labelledby="apartman3ModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="apartman3ModalLabel">Deluxe Apartman 3</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="https://via.placeholder.com/800x400" class="main-image" alt="Deluxe Apartman 3">
+                            <div class="small-images">
+                                <img src="https://via.placeholder.com/200x150" alt="Detalj 1">
+                                <img src="https://via.placeholder.com/200x150" alt="Detalj 2">
+                                <img src="https://via.placeholder.com/200x150" alt="Detalj 3">
+                            </div>
+                            <p>Savremeni apartman sa prostranim dnevnim boravkom i vrhunskom opremom, savršen za duži boravak u Budvi.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="kontakti.html" class="reserve-btn">Rezerviši</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>O nama</h2>
+            <p>
+                <b>City Apartments</b> je porodični biznis koji već godinama pruža vrhunsku uslugu smještaja u <b>Budvi</b>. Naša misija je da svakom gostu pružimo nezaboravno iskustvo, kombinujući udobnost, luksuz i domaću atmosferu.
+                Nalazimo se na idealnoj lokaciji u centru grada, blizu plaža, restorana i glavnih atrakcija.
+            </p>
+
+
+
+        </section>
+
+            <div class="text-ticker">
         <div class="text-ticker-content">
-            Čist račun, dugo poslovanje! - <b>MONTEBILANS</b> - računovodstvo, konsalting, knjigovodstvo, razne vrste registracija, dozvola i prijava boravka!
+            Usluge tokom boravka u - <b>CITY APARTMENTS</b> - usluge siscenja, transferi od/do aerodruma, organizovanje exkurzija na teritoriji Crne Gore, kako grupnih tako i individualnih, renta kar, kao i mnoge druge kako bi nasi gosti bili zadovoljni i srecni!
+        </div>
+        </div>
+
+
+
+         <div class="location-advantages">
+        <h2>Prednosti Lokacije</h2>
+        <div class="location-image-container">
+            <img src="zasto-city.png" alt="Prednosti Lokacije" class="location-image">
+        </div>
+
+
+                <div class="reviews-section">
+        <h2>Komentari Gostiju</h2>
+        <div class="reviews-carousel">
+            <div class="reviews-track">
+                <div class="review-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>Sve je bilo savršeno! Apartman je prostran, čist i na odličnoj lokaciji. Osoblje je veoma ljubazno i uvijek dostupno.</p>
+                    <div class="review-author">
+                        <img src="https://via.placeholder.com/40" alt="Marija P.">
+                        <span class="flag rs"></span>
+                        <h4>Marija P. - Beograd</h4>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>Najbolji odmor do sada! Pogled na more iz apartmana je predivan, a plaža je na samo nekoliko koraka.</p>
+                    <div class="review-author">
+                        <img src="milos.jpg" alt="Marko T.">
+                        <span class="flag rs"></span>
+                        <h4>Marko T. - Novi Sad</h4>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>Osjećali smo se kao kod kuće. Sve je bilo moderno i udobno, a lokacija je savršena za istraživanje Budve.</p>
+                    <div class="review-author">
+                        <img src="https://via.placeholder.com/40" alt="Ana K.">
+                        <span class="flag hr"></span>
+                        <h4>Ana K. - Zagreb</h4>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>Vrhunska usluga! Apartman je bio besprijekoran, a domaćini su nam dali odlične preporuke za restorane i plaže.</p>
+                    <div class="review-author">
+                        <img src="https://via.placeholder.com/40" alt="Stefan M.">
+                        <span class="flag me"></span>
+                        <h4>Stefan M. - Podgorica</h4>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p>Predivno iskustvo! Sve je bilo organizovano do detalja, a apartman je izgledao još bolje nego na slikama.</p>
+                    <div class="review-author">
+                        <img src="https://via.placeholder.com/40" alt="Jelena R.">
+                        <span class="flag ba"></span>
+                        <h4>Jelena R. - Sarajevo</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
         </div>
     </div>
-    <div style="height: 8px;"></div>
 
-    <div class="horizontal-line"></div>
-           
-    <div style="height: 5px;"></div> 
+    </main>
 
-    <div id="yearCounter">2009</div>
-    <p style="font-size: 28px; color: black; text-shadow: 2px 2px 4px #FFD700; text-align: center;">godine iskustva</p>
-    <p style="font-size: 28px; color: black; text-shadow: 2px 2px 4px #FFD700; text-align: center;">na stotine zadovoljnih korisnika i aktivnih klijenata</p>
-    
-
-     <div class="counter-box" id="counterBox">0</div>
-
-
-       <div style="height: 20px;"></div> 
-    <h2>1+1=2</h2>
-    <div class="image-container">
-        <img src="bijeli_logo.jpg" alt="Unique Image Name" class="rounded-image">
-    </div>
-    <div style="height: 20px;"></div> 
-
-    <div style="height: 55px;"></div> 
-    <div class="horizontal-line"></div>
-    <div style="height: 55px;"></div> 
-
-    <h2>Usluge</h2>
-    
-    <div style="height: 35px;"></div> 
-
-    <article class="photo-article">
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <div class="photo-item">
-                    <a href="racunovodstvo.html">
-                        <img src="racunovodstvo.jpg" alt="Opis slike 1" class="img-fluid">
-                        <h1>Računovodstvo</h1>
-                    </a>
-                </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Navigacija</h4>
+                <a href="index.html" class="footer-link"><i class="fas fa-home"></i> Početna</a>
+                <a href="o-nama.html" class="footer-link"><i class="fas fa-info-circle"></i> O nama</a>
+                <a href="galerija.html" class="footer-link"><i class="fas fa-images"></i> Galerija</a>
+                <a href="kontakti.html" class="footer-link"><i class="fas fa-envelope"></i> Kontakti</a>
             </div>
-            
-            <div class="col-md-6 mb-3">
-                <div class="photo-item">
-                    <a href="konsalting.html">
-                        <img src="konsalting.jpg" alt="Opis slike 2" class="img-fluid">
-                        <h1>Konsalting</h1>
+            <div class="footer-column footer-contact">
+                <h4>Kontakt</h4>
+                <p><i class="fas fa-phone"></i> +382 68 871 777</p>
+                <p><i class="fas fa-envelope"></i> info@city-apartments.me</p>
+                <p><i class="fas fa-map-marker-alt"></i> Ul. Mediteranska 53, 85310 Budva</p>
+            </div>
+            <div class="footer-column">
+                <h4>Pratite nas</h4>
+                <div class="footer-social">
+                    <a href="https://wa.me/38269871777" target="_blank" class="social-icon">
+                   <i class="fab fa-whatsapp"></i>
+                </a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon">
+                        <i class="fab fa-twitter"></i>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <div class="photo-item">
-                    <a href="knjigovodstvo.html">
-                        <img src="knjigovodstvo.jpg" alt="Opis slike 3" class="img-fluid">
-                        <h1>Knjigovodstvo</h1>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6 mb-3">
-                <div class="photo-item">
-                    <a href="registracija_dozvole.html">
-                        <img src="registracija prijave.jpg" alt="Opis slike 4" class="img-fluid">
-                        <h1>Registracija i Dozvole</h1>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </article>
-
-    <div class="horizontal-line"></div>
-    <div style="height: 100px;"></div> 
-
-    <img src="montebilans-zlatni.png" alt="montebilans" class="custom-image">
-
-    
-    <div style="height: 100px;"></div> 
-
-    <h2>Kontakti</h2>
-    <div style="height: 35px;"></div> 
-
-  <div class="kontakt-info">
-    <ul>
-        <li>
-            <i class="bi bi-telephone-fill"></i> 
-            <span> +382 20 261 608</span>
-        </li>
-        <li>
-            <i class="bi bi-envelope-fill"></i> 
-            <a href="mailto:info@montebilans.me">info@montebilans.me</a>
-        </li>
-        <li>
-            <i class="bi bi-geo-alt-fill"></i> 
-            <span> Ul. 19.decembar br. 5 (juzna tribina Gradskog stadiona), Podgorica, Montenegro</span>
-        </li>
-        <li>
-            <i class="bi bi-clock-fill"></i> 
-            <span> Pon - Pet: 9:00 - 15:00</span>
-        </li>
-    </ul>
-</div>
-    <div style="height: 10px;"></div> 
-
-    <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2944.2020561919912!2d19.2644761!3d42.444716799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134deb4bec564ed5%3A0xf9ff1d58c9079e25!2sPodgorica%20City%20Stadium!5e0!3m2!1sen!2s!4v1738981224363!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    <div style="height: 55px;"></div> 
-
-    <footer class="footer mt-auto py-3">
-        <div class="container">
-            <a href="index.html">
-                <img src="logo futer.jpg" alt="Montebilans" class="d-inline-block align-top" style="max-height: 69px; border: 2px solid #FFD700; border-radius: 5px;">
-            </a>
-            <h4>MONTEBILANS.ME</h4>
-            <p>+382 20 261 608</p>
-            <p>info@montebilans.me</p>
-            <p style="color: #000000;">© 2025 cryptogorac.com</p>
+        <div class="footer-credit">
+            © 2025 City Apartments | Sva prava zadržana.
         </div>
     </footer>
 
-   <script>
-    let count = 1;
-    const counterBox = document.getElementById('counterBox');
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navbar = document.querySelector('.navbar');
 
-    function updateCounter() {
-      if (count <= 100) {
-        counterBox.textContent = count;
-        count++;
-      } else if (count > 100 && count <= 151) {
-        counterBox.textContent = count;
-        count++;
-      }
-    }
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
 
-    function startCounting() {
-      if (count <= 100) {
-        updateCounter();
-      } else if (count > 100 && count <= 151) {
-        updateCounter();
-      } else if (count > 151) {
-        count = 1;
-        updateCounter();
-      }
-    }
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.style.padding = '1rem 2rem';
+                    navbar.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.3)';
+                } else {
+                    navbar.style.padding = '1.5rem 2rem';
+                    navbar.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+                }
+            });
+        });
 
-    setInterval(() => {
-      if (count <= 100) {
-        startCounting();
-      } else if (count > 100 && count <= 151) {
-        setTimeout(startCounting, 1000); // Pauza od 1 sekunde kada dosegne 100
-      } else if (count > 151) {
-        setTimeout(startCounting, 2000); // Pauza od 2 sekunde kada dosegne 151
-      }
-    }, 50); // Interval od 100 milisekundi
 
-    let currentYear = 2009;
-    const endYear = 2025;
-    const duration = 2500;
-    const yearCounter = document.getElementById('yearCounter');
-    let yearInterval;
-    let pauseTimer;
+       const track = document.querySelector('.reviews-track');
+        const cards = document.querySelectorAll('.review-card');
+        const totalCards = cards.length;
+        let currentIndex = 0;
 
-    function updateYearCounter() {
-      const steps = endYear - currentYear + 1;
-      const delay = duration / steps;
-
-      yearInterval = setInterval(() => {
-        if (currentYear > endYear) {
-          clearInterval(yearInterval);
-          pauseTimer = setTimeout(() => {
-            currentYear = 2009;
-            updateYearCounter();
-          }, 2000); // Pauza od 2 sekunde
-        } else {
-          yearCounter.textContent = currentYear;
-          currentYear++;
+        // Funkcija za pomicanje karusela
+        function moveCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
-      }, delay);
-    }
 
-    window.onload = updateYearCounter;
+        // Automatsko pomicanje svakih 5 sekundi
+        function autoSlide() {
+            currentIndex = (currentIndex + 1) % totalCards;
+            moveCarousel();
+        }
 
-    window.onscroll = function() {
-      const backToTopButton = document.getElementById('backToTop');
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        backToTopButton.style.display = "block";
-      } else {
-        backToTopButton.style.display = "none";
-      }
-    };
+        // Postavi interval za automatsko pomicanje
+        let slideInterval = setInterval(autoSlide, 5000);
 
-    document.getElementById('backToTop').addEventListener('click', function() {
-      document.body.scrollTop = 0; 
-      document.documentElement.scrollTop = 0; 
-    });
-  </script>
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        // Ručni klik na strelice
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            clearInterval(slideInterval);
+            currentIndex = (currentIndex + 1) % totalCards;
+            moveCarousel();
+            slideInterval = setInterval(autoSlide, 5000);
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            clearInterval(slideInterval);
+            currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+            moveCarousel();
+            slideInterval = setInterval(autoSlide, 5000);
+        });
+
+    </script>
 </body>
 </html>
-
-
-
-
-        
-
-    
-
-
-    
-    
